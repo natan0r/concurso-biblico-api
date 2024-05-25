@@ -1,4 +1,4 @@
-package br.com.natan.dormain.entity;
+package br.com.natan.domain.entity;
 
 import java.time.LocalDate;
 
