@@ -1,6 +1,7 @@
 package br.com.natan.domain.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,6 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import br.com.natan.domain.enums.ManualEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,4 +36,8 @@ public class Competidor {
 	
 	@OneToMany(mappedBy = "concurso_id", fetch = FetchType.LAZY)
 	private Integer concursoId;
+	
+	@Convert(converter = ManualEnum.class)
+	@Column(name = "manual_id")
+	private ManualEnum manualId;
 }
