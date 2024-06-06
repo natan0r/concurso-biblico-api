@@ -28,7 +28,7 @@ public class Concurso {
 	
 	@ManyToOne
     @JoinColumn(name = "igreja_id")
-	private Integer igreja;
+	private Igreja igreja;
 	
 	@Column(name = "data")
 	private LocalDate data;

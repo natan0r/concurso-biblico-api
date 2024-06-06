@@ -25,9 +25,8 @@ public class Pontuacao {
 	
 	@OneToOne
 	@JoinColumn(name = "competidor_id")
-	private Integer competidorId;
+	private Competidor competidor;
 	
-	@OneToOne
-    @JoinColumn(name = "pontos")
+	@Column(name = "pontos")
 	private Integer pontos;
 }

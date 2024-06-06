@@ -2,12 +2,11 @@ package br.com.natan.domain.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Convert;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -29,13 +28,15 @@ public class Competidor {
 	
 	@OneToOne
 	@JoinColumn(name = "pessoa_id")
-	private Integer pessoaId;
+	private Pessoa pessoa;
 	
-	@OneToMany(mappedBy = "igreja_id", fetch = FetchType.LAZY)
-	private Integer igrejaId;
+	@ManyToOne
+	@JoinColumn(name = "igreja_id")
+	private Igreja igreja;
 	
-	@OneToMany(mappedBy = "concurso_id", fetch = FetchType.LAZY)
-	private Integer concursoId;
+	@ManyToOne
+	@JoinColumn(name = "concurso_id")
+	private Concurso concurso;
 	
 	@Convert(converter = ManualEnum.class)
 	@Column(name = "manual_id")
