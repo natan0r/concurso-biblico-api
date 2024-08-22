@@ -30,6 +30,10 @@ public class Pessoa {
 	@Column(name = "id_pessoa")
 	private Integer id;
 	
+	@Column(name = "nome", length = 100)
+	@NotEmpty(message = "{campo.nome.obrigatorio}")
+	private String nome;
+	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "data_nascimento")
 	@NotEmpty(message = "{campo.data-nascimento.obrigatorio}")
